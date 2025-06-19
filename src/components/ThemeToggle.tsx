@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Sun, Moon } from 'lucide-react'
 import { cn } from '@/utils/cn'
 
 export const ThemeToggle = () => {
 	const [isDarkMode, setIsDarkMode] = useState(false)
+	const buttonRef = useRef<HTMLButtonElement>(null)
 
 	useEffect(() => {
 		const storedTheme = localStorage.getItem('theme')
@@ -26,19 +27,23 @@ export const ThemeToggle = () => {
 			localStorage.setItem('theme', 'dark')
 			setIsDarkMode(true)
 		}
+
+		buttonRef.current?.blur()
 	}
+
 	return (
 		<button
+			ref={buttonRef}
 			onClick={toggleTheme}
 			className={cn(
-				'fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300 cursor-pointer',
-				'focus:outlin-hidden'
+				'fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300 cursor-pointer group',
+				'focus:outline-none'
 			)}
 		>
 			{isDarkMode ? (
-				<Sun className="h-6 w-6 text-yellow-300" />
+				<Sun className="h-6 w-6 text-yellow-300 transition-transform duration-200 group-hover:scale-110 group-focus:scale-120 group-focus:text-orange-400" />
 			) : (
-				<Moon className="h-6 w-6 text-blue-900" />
+				<Moon className="h-6 w-6 text-blue-900 transition-transform duration-200 group-hover:scale-110 group-focus:scale-120 group-focus:text-violet-800" />
 			)}
 		</button>
 	)
