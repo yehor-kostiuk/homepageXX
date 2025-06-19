@@ -36,8 +36,9 @@ export const ThemeToggle = () => {
 			ref={buttonRef}
 			onClick={toggleTheme}
 			className={cn(
-				'fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300 cursor-pointer group',
-				'focus:outline-none'
+				'fixed top-5 right-0 z-50 p-2 rounded-full transition-colors duration-300 cursor-pointer group',
+				'focus:outline-none',
+				'md:top-3.5 md:right-5'
 			)}
 		>
 			{isDarkMode ? (
