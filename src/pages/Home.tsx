@@ -1,5 +1,6 @@
-import { SpaceBackground } from '@/components/SpaceBackground'
 import { ThemeToggle } from '@/components/ThemeToggle'
+import { SpaceBackground } from '@/components/SpaceBackground'
+import { Nav } from '@/components/Nav'
 
 export const HomePage = () => {
 	return (
@@ -8,8 +9,8 @@ export const HomePage = () => {
 			<ThemeToggle />
 			{/* Background Effects */}
 			<SpaceBackground />
-			{/* Navbar */}
-
+			{/* Nav */}
+			<Nav />
 			{/* Main Content */}
 
 			{/* Footer */}
