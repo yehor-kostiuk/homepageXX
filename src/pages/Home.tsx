@@ -1,3 +1,4 @@
+import { SpaceBackground } from '@/components/SpaceBackground'
 import { ThemeToggle } from '@/components/ThemeToggle'
 
 export const HomePage = () => {
@@ -6,7 +7,7 @@ export const HomePage = () => {
 			{/* Theme Toggle */}
 			<ThemeToggle />
 			{/* Background Effects */}
-
+			<SpaceBackground />
 			{/* Navbar */}
 
 			{/* Main Content */}
