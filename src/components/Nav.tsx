@@ -16,17 +16,19 @@ export const Nav = () => {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setIsScrolled(window.screenY > 10)
+			setIsScrolled(window.scrollY > 10)
 		}
 
 		window.addEventListener('scroll', handleScroll)
 		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
 	return (
 		<nav
 			className={cn(
-				'fixed w-full z-40 transition-all duration-300',
-				isScrolled ? 'py-3 bg-background/80 backdrop-blur-md shadow-xs' : 'py-5'
+				'fixed w-full py-5 z-40 transition-all duration-300',
+				isScrolled &&
+					'bg-background/95 md:bg-background/80 md:backdrop-blur-md shadow-xs'
 			)}
 		>
 			<div className="container flex items-center justify-between">
@@ -64,11 +66,11 @@ export const Nav = () => {
 
 				<div
 					className={cn(
-						'fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center',
-						'transition-all duration-300 md:hidden',
+						'fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center',
+						'transition-all duration-500 ease-out md:hidden transform',
 						isMenuOpen
-							? 'opacity-100 pointer-events-auto'
-							: 'opacity-0 pointer-events-none'
+							? 'opacity-100 translate-y-0 pointer-events-auto'
+							: 'opacity-0 -translate-y-5 pointer-events-none'
 					)}
 				>
 					<div className="flex flex-col space-y-8 text-xl">
