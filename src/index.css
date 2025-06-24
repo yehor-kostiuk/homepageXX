@@ -156,6 +156,10 @@
 	transform: rotate(215deg) translateX(0);
 }
 
+@utility placeholder-color {
+	@apply placeholder-zinc-500;
+}
+
 #root {
 	max-width: 100%;
 	margin: 0 auto;
