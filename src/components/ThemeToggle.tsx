@@ -18,6 +18,8 @@ export const ThemeToggle = () => {
 	}, [])
 
 	const toggleTheme = () => {
+		document.documentElement.classList.add('changing-theme')
+
 		if (isDarkMode) {
 			document.documentElement.classList.remove('dark')
 			localStorage.setItem('theme', 'light')
@@ -27,6 +29,10 @@ export const ThemeToggle = () => {
 			localStorage.setItem('theme', 'dark')
 			setIsDarkMode(true)
 		}
+
+		setTimeout(() => {
+			document.documentElement.classList.remove('changing-theme')
+		}, 0)
 
 		buttonRef.current?.blur()
 	}
